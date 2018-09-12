@@ -1,0 +1,157 @@
+.form form {
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.guestbook {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid#cccccc;
+}
+
+.guestbook .user {
+  font-weight: bold;
+}
+.guestbook .posted {
+  font-style: italic;
+  text-align: right;
+  width: 200px;
+}
+
+.guestbook .content {
+  padding-top: 20px;
+}
+.pp-review-date {
+    float: right;
+    margin: 3px 0 6px 1em;
+        margin-top: 3px;
+        margin-right: 0em;
+        margin-bottom: 6px;
+        margin-left: 1em;
+}
+.pp-review-date-n {
+    float: left;
+    margin: 3px 0 6px 1em;
+        margin-top: 3px;
+        margin-right: 1em;
+        margin-bottom: 6px;
+        margin-left: 0em;
+}
+.pp-review-date-text {
+    display: inline-block;
+    color: #999;
+    white-space: nowrap;
+}
+.pp-review-text-i {
+
+    font-size: 1.07692em;
+    line-height: 1.43em;
+    word-break: break-word;
+    margin-bottom: .5em;
+
+}
+.pp-review {
+
+    margin-bottom: 2.2em;
+
+}
+.pp-review-author-name {
+
+    font-size: 1.23077em;
+    line-height: 1.25em;
+    font-weight: 700;
+
+}
+h6 {
+    font-weight: 700;
+}
+.pp-review-i {
+
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: .61538em;
+    margin-bottom: 1.4em;
+
+}
+.detail-add-review-f-i-title-vert {
+
+    font-size: .9375rem;
+    margin-bottom: 5px;
+
+}
+
+.detail-add-review-input-textarea {
+
+    height: 8.33333em;
+
+}
+.aligned-right {
+
+    text-align: center;
+
+}
+.input-textarea {
+
+    max-width: 21em;
+
+}
+.input-textarea {
+
+    border: 1px solid #c2c2cc;
+    border-radius: 3px;
+    box-shadow: inset 3px 3px 1px 0 #eeeeef;
+    font-size: 1.15385em;
+    width: 21em;
+    padding: .33333em;
+    resize: none;
+
+}
+.pp-review-heading-title {
+
+    font-size: 1.84615em;
+    font-weight: 400;
+    line-height: 30px;
+    margin-right: 405px;
+    text-align: center;
+    padding-bottom: .61538em;
+    margin-bottom: 1.4em;
+    margin-top: 2em;
+
+}
+.coment {
+    margin-top: 2em;
+    padding-bottom: .61538em;
+    margin-bottom: 1.4em;
+
+}
+.coments {
+  margin-left: 20em;
+}
+h3 {
+    margin-top: 1em;
+    margin-bottom: 1.4em;
+}
+h4 {
+    margin-top: 1em;
+}
+.descrip {
+    margin-bottom: 2em;
+}
+.categor {
+    margin-bottom: 2em;
+}
+
+.g-photo{
+    margin-top: 2em;
+}
+.good-el {
+    margin-bottom: 3em;
+}
+
+.date-blog {
+    float: right;
+    margin-bottom: 4em;
+}
+
+.btn-add {
+    margin-top: 1.6em;
+}

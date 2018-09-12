@@ -1,0 +1,47 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+
+
+        <div class="pp-review-date">
+            <div class="btn-group">
+                <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Дія</button>
+
+                <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Дія</h6>
+                        <a class="dropdown-item" href="{% url 'good_add'%}">Додати новий товар</a>
+                        <a class="dropdown-item" href="{% url 'category_delete' category.id %}">Видалити категорію</a>
+                </div>
+        </div>
+        </div>
+
+        <h3>{{ category }}</h3>
+        {% for good in object_list %}
+            <div class="row">
+            <div class="col-3 ">
+                <div class="g-photo">
+                    {% if good.photo %}<img class="middle" src="{{ good.photo.url }}" height="150" width="150" />{% endif %}
+                </div>
+            </div>
+            <div class="col-9 good-el">
+            <h2>Ціна</h2>
+            <h2><a href="{% url 'good_detail' good.id %}">{{ good.name }}</a></h2>
+            <li>{{ good.description }}</li>
+                <p><a href="{% url 'good_detail' good.id %}">Докладніше >> </a></p>
+
+            <p></p>
+            </div>
+            </div>
+
+        {% endfor %}
+
+
+
+
+
+
+{% endblock main %}

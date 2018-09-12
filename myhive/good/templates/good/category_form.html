@@ -1,0 +1,13 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Додовання нової категорії {% endblock %}
+
+{% block main %}
+    <form action = "" method = "post" >
+    {% csrf_token %}
+    {{ form.as_p }}
+        <input type = "submit" value = "Зберегти" class="btn btn-primary"/>
+        <button type="submit" name="cancel_button" value="Скасувати" class=" btn btn-danger">Скасувати</button>
+    </form >
+{% endblock main %}

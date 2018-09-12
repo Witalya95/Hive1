@@ -1,0 +1,50 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+
+
+        <div class="pp-review-date btn-add ">
+        <a class="btn btn-outline-success" href="{% url 'blog_add'%}" role="button">Додати</a>
+        </div>
+        <h3>Статті</h3>
+        {% for blog in latest %}
+        <time class="pp-review-date-text date-blog">{{ blog.posted|date:"j.m.Y H:i:s"  }} </time>
+
+        <h4>
+            <a href="{% url 'blog' blog.id %}">{{ blog.title }}</a>
+        </h4>
+
+
+
+        <p class="descrip">{{ blog.description }}</p>
+
+
+
+        <p> </p>
+
+        {% endfor %}
+
+
+        {% if paginator.num_pages > 1 %}
+        <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="{% url 'blogs' %}?page=1">&laquo;</a></li>
+                {% for p in paginator.page_range %}
+                <li {% if page_obj.number == p %}class="page-item active"{% endif %}>
+                        <a class="page-link" href="{% url 'blogs' %}?page={{ p }}">{{ p }}</a></li>
+                {% endfor %}
+                        <li class="page-item"><a class="page-link" href="{% url 'blogs' %}?page={{ paginator.num_pages}}">&raquo;</a>
+                        </li>
+                </ul>
+        </nav>
+        {% endif %}
+
+
+
+
+
+
+{% endblock main %}

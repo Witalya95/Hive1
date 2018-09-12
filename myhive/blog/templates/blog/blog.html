@@ -1,0 +1,72 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+
+
+
+        <h3>{{ object.title }}</h3>
+        <h6>{{ object.description }}</h6>
+        <p>{{ object.content|linebreaksbr }}</p>
+        <div class="pp-review-date">
+            <div class="btn-group">
+                <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Дія</button>
+
+                <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Дія</h6>
+                        <a class="dropdown-item" href="{% url 'blog_update' blog.id %}">Редагувати</a>
+                        <a class="dropdown-item" href="{% url 'blog_delete' blog.id %}">Видалити</a>
+                </div>
+        </div>
+        </div>
+        <div class="pp-review-author categor">
+            <span class="pp-review-author-name" itemprop="author">{{ object.posted|date:"j.m.Y H:i:s" }}</span>
+        </div>
+        <p><a href="{% url 'blogs'  %}">До статтей <<</a></p>
+
+{% if request.user.is_authenticated %}
+        <form action="/blog/addcomment/{{ object.id }}" method="post">
+        {% csrf_token %}
+        {{ form_comments.as_p }}
+        <input type="submit" value="Send comment" />
+        </form>
+{% endif %}
+
+         <p class="pp-review-heading-title">Коментарі<span name="count_comments" class="pp-review-heading-title-inner"></span></p>
+
+        {% for comment in comments %}
+
+
+
+
+    <div  class="pp-review">
+    <article class="pp-review-i">
+        <div class="pp-review-date">
+            <time class="pp-review-date-text">{{ comment.posted|date:"j.m.Y H:i:s"  }}</time>
+        </div>
+        <div class="pp-review-author">
+            <span class="pp-review-author-name" itemprop="author">{{ comment.user }}</span>
+        </div>
+
+        <div class="clearfix pp-review-i-b">
+
+        <div class="pp-review-text">
+            <div class="pp-review-text-i">{{ comment.content }}</div>
+
+        </div>
+        </div>
+        </article>
+    </div>
+      {% endfor %}
+
+
+
+
+
+
+
+
+{% endblock main %}

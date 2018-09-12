@@ -1,0 +1,45 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Головна сторінка{% endblock %}
+
+{% block main %}
+
+
+
+    <h2>Все для бджолярства</h2>
+    <p>Компанія &quot;Мій вулик&quot; продає все необхідне для </p>
+    <h3>Новини</h3>
+    {% for new in news %}
+     <time class="pp-review-date-n pp-review-date-text ">{{ new.posted|date:"j.m.Y" }}</time>
+        <h4>
+            <a href="{% url 'news_detail' new.id %}">{{ new.title }}</a>
+        </h4>
+        <p class="descrip">{{ new.description }}</p>
+
+        {% endfor %}
+
+    <h3>Відгуки відвідувачів</h3>
+
+    {% for coment in coments %}
+    <div  class="pp-review">
+    <article class="pp-review-i">
+        <div class="pp-review-date">
+            <time class="pp-review-date-text">{{ coment.posted|date:"j.m.Y H:i:s"  }}</time>
+        </div>
+        <div class="pp-review-author">
+            <span class="pp-review-author-name" itemprop="author">{{ coment.user }}</span>
+        </div>
+
+        <div class="clearfix pp-review-i-b">
+
+        <div class="pp-review-text">
+            <div class="pp-review-text-i">{{ coment.content }}</div>
+
+        </div>
+        </div>
+        </article>
+    </div>
+      {% endfor %}
+
+{% endblock %}

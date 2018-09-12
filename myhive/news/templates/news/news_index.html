@@ -1,0 +1,61 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+
+
+        <div class="pp-review-date btn-add ">
+        <a class="btn btn-outline-success" href="{% url 'news_add'%}" role="button">Додати</a>
+        </div>
+        <h3>Новини</h3>
+
+        {% for news in latest %}
+
+         <div class="pp-review-date">
+            <div class="btn-group">
+                <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Дія</button>
+
+                <div class="dropdown-menu">
+                        <h6 class="dropdown-header">Дія</h6>
+                        <a class="dropdown-item" href="{% url 'news_update' news.id %}">Редагувати</a>
+                        <a class="dropdown-item" href="{% url 'news_delete' news.id %}">Видалити</a>
+                </div>
+        </div>
+        </div>
+
+        <time class="pp-review-date-n pp-review-date-text ">{{ news.posted|date:"j.m.Y" }}</time>
+        <h4>
+            <a href="{% url 'news_detail' news.id %}?page={{page_obj.number}}">{{ news.title }}</a>
+        </h4>
+        <p class="descrip">{{ news.description }}</p>
+
+
+
+        {% endfor %}
+
+        {% if paginator.num_pages > 1 %}
+        <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="{% url 'news' %}?page=1">&laquo;</a></li>
+                {% for p in paginator.page_range %}
+                <li {% if page_obj.number == p %}class="page-item active"{% endif %}>
+                        <a class="page-link" href="{% url 'news' %}?page={{ p }}">{{ p }}</a></li>
+                {% endfor %}
+                        <li class="page-item"><a class="page-link" href="{% url 'news' %}?page={{ paginator.num_pages}}">&raquo;</a>
+                        </li>
+                </ul>
+        </nav>
+        {% endif %}
+
+
+
+
+
+
+
+
+
+{% endblock main %}

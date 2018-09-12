@@ -1,0 +1,60 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+    <form action="{% url 'guestbook' %}" method="post">
+
+        {% csrf_token %}
+            <div class="col-sm-4">
+                <div class="coment">
+                <div class="">Користувач
+                <input type="text" class="form-control" placeholder="Ім'я" name="user">
+                    </div>
+                <div class="">Відгук</div>
+                <textarea name="content" _required="required" max_length="35000" id="comment_element" min_chars_left_for_hint="1000" class="input-textarea input-textarea-wide detail-add-review-input-textarea" data-title="Коментар"></textarea>
+                </div>
+                </div>
+
+        <div class="aligned-right clearfix f-i" name="add_comment_btn_block">
+
+		</div>
+
+
+        <button type="submit" class="btn btn-primary">Додати</button>
+        <input type="hidden" name="next" value="{% url 'default' %}">
+    </form>
+
+
+        <p class="pp-review-heading-title">Відгуки відвідувачів<span name="count_comments" class="pp-review-heading-title-inner"></span></p>
+
+        {% for book in books %}
+
+
+
+
+    <div  class="pp-review">
+    <article class="pp-review-i">
+        <div class="pp-review-date">
+            <time class="pp-review-date-text">{{ book.posted|date:"j.m.Y H:i:s"  }}</time>
+        </div>
+        <div class="pp-review-author">
+            <span class="pp-review-author-name" itemprop="author">{{ book.user }}</span>
+        </div>
+
+        <div class="clearfix pp-review-i-b">
+
+        <div class="pp-review-text">
+            <div class="pp-review-text-i">{{ book.content }}</div>
+
+        </div>
+        </div>
+        </article>
+    </div>
+      {% endfor %}
+
+
+
+
+{% endblock main %}

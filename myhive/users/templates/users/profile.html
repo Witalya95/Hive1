@@ -1,0 +1,58 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+{% block bootstrap %}
+{% endblock %}
+{% block title %} {% endblock %}
+
+{% block main %}
+
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+
+    <table class="table table-striped">
+        {% if user.email %}
+        <tr>
+            <td>Email</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endif %}
+        {% if user.username %}
+         <tr>
+            <td>Username</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        {% endif %}
+        {% if user.first_name %}
+        <tr>
+            <td>Ім'я</td>
+            <td>{{ user.first_name }}</td>
+        </tr>
+        {% endif %}
+        {% if user.last_name %}
+        <tr>
+            <td>Прізвище</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+        {% endif %}
+        {% if user.uprofile.mobile_phone %}
+         <tr>
+            <td>Номер мобільного</td>
+            <td>{{ user.uprofile.mobile_phone }}</td>
+        </tr>
+        {% endif %}
+        {% if user.uprofile.city %}
+         <tr>
+            <td>Місто</td>
+            <td>{{ user.uprofile.city }}</td>
+        </tr>
+        {% endif %}
+         {% if user.date_joined %}
+         <tr>
+            <td>Реєстрація</td>
+            <td>{{ user.date_joined }}</td>
+        </tr>
+        {% endif %}
+
+
+    </table>
+
+{% endblock %}

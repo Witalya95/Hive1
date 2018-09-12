@@ -1,0 +1,16 @@
+{% extends 'default/base.html' %}
+{% load staticfiles %}
+
+{% block title %}Гостьова книга {% endblock %}
+
+{% block main %}
+
+
+
+        <h3>{{ object.title }}</h3>
+        <h6>{{ object.description }}</h6>
+        <p>{{ object.content|linebreaksbr }}</p>
+        <p><a href="{% url 'news'  %}">До новин</a></p>
+
+
+{% endblock main %}
